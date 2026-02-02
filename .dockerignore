@@ -5,6 +5,8 @@
 # Maven
 target/
 !.mvn/wrapper/maven-wrapper.jar
+!mvnw
+!mvnw.cmd
 mvn/
 .mvn/
 
@@ -34,3 +36,4 @@ Thumbs.db
 README.md
 Dockerfile
 .dockerignore
+railway.json

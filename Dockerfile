@@ -1,8 +1,11 @@
-# Use OpenJDK 17 slim image as base
-FROM openjdk:17-jdk-slim
+# Use Eclipse Temurin (Adoptium) Java 17 image as base
+FROM eclipse-temurin:17-jdk-alpine
 
 # Set working directory
 WORKDIR /app
+
+# Install Maven (Alpine doesn't have it by default)
+RUN apk add --no-cache maven
 
 # Copy the Maven wrapper and pom.xml first for better caching
 COPY .mvn .mvn
