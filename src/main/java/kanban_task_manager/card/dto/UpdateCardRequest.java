@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class UpdateCardRequest {
     private String title;
     private String description;
-    private String listId;  // for moving between lists
+    private String listId;
     private String assignedUserId;
     private Integer position;
     private String priority;

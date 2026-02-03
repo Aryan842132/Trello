@@ -57,8 +57,6 @@ public class ListService {
     }
 
     public void deleteList(String listId) {
-        // First delete all cards in this list
-        // Note: This would typically be handled by a card service method
         listRepository.deleteById(listId);
     }
 }

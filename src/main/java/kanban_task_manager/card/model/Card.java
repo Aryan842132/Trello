@@ -22,7 +22,7 @@ public class Card {
     private String boardId;
     private String assignedUserId;
     private Integer position;
-    private String priority; // LOW, MEDIUM, HIGH
+    private String priority;
     private LocalDateTime dueDate;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

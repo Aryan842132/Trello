@@ -30,12 +30,10 @@ public class AuthService {
     private JwtUtil jwtUtil;
 
     public AuthResponse signup(SignupRequest request) {
-        // Check if user already exists
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new RuntimeException("User with this email already exists");
         }
 
-        // Create new user
         User user = new User();
         user.setName(request.getName());
         user.setEmail(request.getEmail());
@@ -43,14 +41,12 @@ public class AuthService {
 
         User savedUser = userRepository.save(user);
 
-        // Generate JWT token
         String token = jwtUtil.generateToken(savedUser);
 
         return new AuthResponse(token, null, "User registered successfully", savedUser);
     }
 
     public AuthResponse login(LoginRequest request) {
-        // Authenticate user
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
         );
