@@ -15,19 +15,19 @@ import lombok.NoArgsConstructor;
 @Document(collection = "lists")
 public class ListEntity {
     @Id
-    private String id;
+    private String listId;
     private String title;
     private String boardId;
     private Integer position;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public String getId() {
-        return id;
+    public String getListId() {
+        return listId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setListId(String listId) {
+        this.listId = listId;
     }
 
     public String getTitle() {

@@ -31,14 +31,15 @@ public class BoardService {
         board.setDescription(request.getDescription());
         board.setOwnerId(userId);
         
+        // Get user IDs for members
         List<String> memberIds = new ArrayList<>();
-        memberIds.add(userId); 
+        memberIds.add(userId); // Add owner as member
         
         if (request.getMemberEmails() != null) {
             for (String email : request.getMemberEmails()) {
                 Optional<User> user = userRepository.findByEmail(email);
                 if (user.isPresent()) {
-                    memberIds.add(user.get().getId());
+                    memberIds.add(user.get().getUserId());
                 }
             }
         }
@@ -54,6 +55,7 @@ public class BoardService {
         List<Board> boardsByOwner = boardRepository.findByOwnerId(userId);
         List<Board> boardsForMember = boardRepository.findByMemberIdsContaining(userId);
         
+        // Combine and remove duplicates
         List<Board> allBoards = new ArrayList<>(boardsByOwner);
         for (Board board : boardsForMember) {
             if (!allBoards.contains(board)) {
@@ -72,6 +74,7 @@ public class BoardService {
     public Board updateBoard(String boardId, UpdateBoardRequest request, String userId) {
         Board board = getBoardById(boardId);
         
+        // Check if user is owner
         if (!board.getOwnerId().equals(userId)) {
             throw new RuntimeException("You don't have permission to update this board");
         }
@@ -85,7 +88,8 @@ public class BoardService {
 
     public void deleteBoard(String boardId, String userId) {
         Board board = getBoardById(boardId);
- 
+        
+        // Check if user is owner
         if (!board.getOwnerId().equals(userId)) {
             throw new RuntimeException("You don't have permission to delete this board");
         }

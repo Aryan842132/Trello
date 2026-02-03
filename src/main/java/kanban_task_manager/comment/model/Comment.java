@@ -15,19 +15,19 @@ import lombok.NoArgsConstructor;
 @Document(collection = "comments")
 public class Comment {
     @Id
-    private String id;
+    private String commentId;
     private String content;
     private String cardId;
     private String userId;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public String getId() {
-        return id;
+    public String getCommentId() {
+        return commentId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setCommentId(String commentId) {
+        this.commentId = commentId;
     }
 
     public String getContent() {

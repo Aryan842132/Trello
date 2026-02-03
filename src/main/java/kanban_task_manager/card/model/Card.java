@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Document(collection = "cards")
 public class Card {
     @Id
-    private String id;
+    private String cardId;
     private String title;
     private String description;
     private String listId;
@@ -27,12 +27,12 @@ public class Card {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public String getId() {
-        return id;
+    public String getCardId() {
+        return cardId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setCardId(String cardId) {
+        this.cardId = cardId;
     }
 
     public String getTitle() {

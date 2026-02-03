@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Document(collection = "boards")
 public class Board {
     @Id
-    private String id;
+    private String boardId;
     private String title;
     private String description;
     private String ownerId;
@@ -24,12 +24,12 @@ public class Board {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public String getId() {
-        return id;
+    public String getBoardId() {
+        return boardId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setBoardId(String boardId) {
+        this.boardId = boardId;
     }
 
     public String getTitle() {
