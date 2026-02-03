@@ -19,7 +19,7 @@ public class JwtUtil {
     @Value("${jwt.secret}")
     private String SECRET_KEY;
 
-    @Value("${jwt.expiration}") // 24 hours default
+    @Value("${jwt.expiration}") 
     private Long expirationTime;
 
     public String extractUsername(String token) {
