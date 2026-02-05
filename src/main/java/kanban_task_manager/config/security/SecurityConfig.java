@@ -68,6 +68,9 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/public/**").permitAll()
                         .requestMatchers("/api/boards/**").permitAll()
+                        .requestMatchers("/api/cards").permitAll()
+                        .requestMatchers("/api/comments").permitAll()
+                        .requestMatchers("/api/lists").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
